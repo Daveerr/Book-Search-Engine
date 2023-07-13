@@ -11,6 +11,24 @@ import { gql } from '@apollo/client';
 //REMOVE_BOOK will execute the removeBook mutation.
 
 export const ADD_USER = gql`
+mutation AddUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+        token
+        user {
+            _id
+            username
+            email
+            bookCount
+            saveBooks {
+                bookId
+                authors
+                description
+                title
+                image
+                link
+            }
+        }
+    }
+}`;
+    
 
-
-`
